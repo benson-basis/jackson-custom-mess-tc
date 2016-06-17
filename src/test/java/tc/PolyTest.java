@@ -31,7 +31,7 @@ public class PolyTest {
         Poly1 o = new Poly1();
         req.setOptions(o);
         req.setVal("some value");
-        Top top = new Top(new Key("/categories"), req);
+        Top top = new Top("/categories", req);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(top);
         JsonNode tree = mapper.readTree(json);

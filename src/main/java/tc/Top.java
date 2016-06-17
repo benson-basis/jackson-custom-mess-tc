@@ -24,7 +24,7 @@ import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
  *
  */
 public class Top {
-    private final Key key;
+    private final String key;
     @JsonTypeInfo(
             use = JsonTypeInfo.Id.CUSTOM,
             include = JsonTypeInfo.As.EXTERNAL_PROPERTY,
@@ -35,12 +35,12 @@ public class Top {
 
 
     @JsonCreator
-    public Top(@JsonProperty("key") Key key, @JsonProperty("b") Base b) {
+    public Top(@JsonProperty("key") String key, @JsonProperty("b") Base b) {
         this.key = key;
         this.b = b;
     }
 
-    public Key getKey() {
+    public String getKey() {
         return key;
     }
 
