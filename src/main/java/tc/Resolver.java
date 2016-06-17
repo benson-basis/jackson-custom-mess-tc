@@ -59,11 +59,6 @@ public class Resolver implements TypeIdResolver {
     }
 
     @Override
-    public JavaType typeFromId(String id) {
-        return types.get(id);
-    }
-
-    @Override
     public JavaType typeFromId(DatabindContext context, String id) {
         return types.get(id);
     }
