@@ -15,36 +15,21 @@
 package tc;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonTypeIdResolver;
-import com.fasterxml.jackson.databind.annotation.JsonTypeResolver;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  *
  */
-public class Top {
-    private final Key key;
-    @JsonTypeInfo(
-            use = JsonTypeInfo.Id.CUSTOM,
-            include = JsonTypeInfo.As.EXTERNAL_PROPERTY,
-            property = "key")
-    @JsonTypeIdResolver(IdResolver.class)
-    @JsonTypeResolver(ResolverBuilder.class)
-    private final Base b;
-
+public class Key {
+    private final String key;
 
     @JsonCreator
-    public Top(@JsonProperty("key") Key key, @JsonProperty("b") Base b) {
+    public Key(String key) {
         this.key = key;
-        this.b = b;
     }
 
-    public Key getKey() {
+    @JsonValue
+    public String getKey() {
         return key;
-    }
-
-    public Base getB() {
-        return b;
     }
 }

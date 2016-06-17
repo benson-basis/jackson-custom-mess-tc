@@ -31,9 +31,7 @@ public class PolyTest {
         Poly1 o = new Poly1();
         req.setOptions(o);
         req.setVal("some value");
-        Top top = new Top();
-        top.setB(req);
-        top.setKey("/categories");
+        Top top = new Top(new Key("/categories"), req);
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(top);
         JsonNode tree = mapper.readTree(json);
@@ -44,5 +42,6 @@ public class PolyTest {
         // Can we reverse the process? I have some doubts
         Top itemRead = mapper.readValue(json, Top.class);
         assertNotNull(itemRead);
+        assertNotNull(itemRead.getKey());
     }
 }

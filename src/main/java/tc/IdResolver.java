@@ -28,11 +28,11 @@ import java.util.Map;
  *
  */
 @SuppressWarnings("deprecation")
-public class Resolver implements TypeIdResolver {
+public class IdResolver implements TypeIdResolver {
 
     private Map<String, JavaType> types;
 
-    public Resolver() {
+    public IdResolver() {
         types = new HashMap<String, JavaType>();
         TypeFactory typeFactory = TypeFactory.defaultInstance();
         types.put("/categories", typeFactory.constructType(new TypeReference<Base<Poly1>>() { }));
