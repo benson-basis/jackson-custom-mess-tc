@@ -30,9 +30,7 @@ public class Top {
             include = JsonTypeInfo.As.EXTERNAL_PROPERTY,
             property = "key")
     @JsonTypeIdResolver(IdResolver.class)
-    @JsonTypeResolver(ResolverBuilder.class)
     private final Base b;
-
 
     @JsonCreator
     public Top(@JsonProperty("key") String key, @JsonProperty("b") Base b) {

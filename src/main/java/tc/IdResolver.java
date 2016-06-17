@@ -60,7 +60,7 @@ public class IdResolver implements TypeIdResolver {
 
     @Override
     public JavaType typeFromId(String id) {
-        return types.get(id);
+        return null;
     }
 
     @Override

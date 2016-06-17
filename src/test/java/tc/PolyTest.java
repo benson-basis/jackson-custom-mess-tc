@@ -29,7 +29,6 @@ public class PolyTest {
     public void batchWorkItemRequest() throws Exception {
         Base<Poly1> req = new Base<Poly1>();
         Poly1 o = new Poly1();
-        req.setOptions(o);
         req.setVal("some value");
         Top top = new Top("/categories", req);
         ObjectMapper mapper = new ObjectMapper();
@@ -37,7 +36,6 @@ public class PolyTest {
         JsonNode tree = mapper.readTree(json);
         assertNotNull(tree.get("b"));
         assertNotNull(tree.get("b").get("options"));
-        assertNotNull(tree.get("b").get("options").get("val"));
 
         // Can we reverse the process? I have some doubts
         Top itemRead = mapper.readValue(json, Top.class);
